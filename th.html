@@ -129,6 +129,7 @@ button[type=button].mini {
 <p class="terminal" id="out">แอปประเมินความเสี่ยงโรคหัวใจ (WHO SEA 2019) ; ผลลัพธ์จะแสดงที่นี่</p>
 
 <label>เพศ:</label>&ensp;&ensp;
+<button type="button" id="logobutton" class="mini" onclick="logoHandle()"> แสดง logo </button>
 <input type="radio" id="female" name="sex">
 <label for="female">หญิง</label>
 <input type="radio" id="male" name="sex">
@@ -164,8 +165,8 @@ button[type=button].mini {
 </div>
 <br>
 <button type="button" onclick="calRisk()"> แสดงผล </button>
-<br><br>
-<button type="button" class="mini" onclick="logoHandle()"> แสดง/ซ่อน logo </button>
+<br>
+
 
 <script>
 var DATA = {'dm': {'male': {'non_smoke': {40: {180: {120: 11,
@@ -638,9 +639,11 @@ function logoHandle() {
 
   if (document.getElementById("logo").className == "hide") {
     document.getElementById("logo").className = "show";
+    document.getElementById("logobutton").textContent = "ซ่อน logo";
   }
   else {
     document.getElementById("logo").className = "hide";
+    document.getElementById("logobutton").textContent = "แสดง logo";
   }
 }
 
