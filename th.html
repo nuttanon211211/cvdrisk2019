@@ -46,6 +46,15 @@ p.terminale {
   border: 6px solid lightgray;
   border-radius: 5px;
   }
+img.hide {
+  visibility: hidden;
+  position: absolute;
+}
+
+img.show {
+  visibility: visible;
+  max-width: 100%;
+}
 button[type=button] {
   background-color: mintcream;
   color: black;
@@ -60,6 +69,19 @@ button[type=button] {
 button[type=button]:hover, button[type=button]:active {
   background-color: forestgreen;
   color:white;
+}
+button[type=button].mini {
+  background-color: mintcream;
+  color: gray;
+  border: 1px dotted gray;
+  border-radius: 8px;
+  font-weight: normal;
+  padding: 0px 0px;
+  text-align: center;
+  position: absolute;
+  right: 5%;
+  text-decoration: none;
+
 }
 .tooltip {
   position: relative;
@@ -103,6 +125,7 @@ button[type=button]:hover, button[type=button]:active {
 </style>
 </head>
 <body>
+<img src="logo.png" id="logo" class="hide"></img>
 <p class="terminal" id="out">แอปประเมินความเสี่ยงโรคหัวใจ (WHO SEA 2019) ; ผลลัพธ์จะแสดงที่นี่</p>
 
 <label>เพศ:</label>&ensp;&ensp;
@@ -141,6 +164,8 @@ button[type=button]:hover, button[type=button]:active {
 </div>
 <br>
 <button type="button" onclick="calRisk()"> แสดงผล </button>
+<br><br>
+<button type="button" class="mini" onclick="logoHandle()"> แสดง/ซ่อน logo </button>
 
 <script>
 var DATA = {'dm': {'male': {'non_smoke': {40: {180: {120: 11,
@@ -609,6 +634,15 @@ function calRisk() {
 }   
 //console.log(roundAge('aaa'));
 
+function logoHandle() {
+
+  if (document.getElementById("logo").className == "hide") {
+    document.getElementById("logo").className = "show";
+  }
+  else {
+    document.getElementById("logo").className = "hide";
+  }
+}
 
 </script>
 </body>
