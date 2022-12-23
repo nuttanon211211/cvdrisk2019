@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <head>
 <!-- Credit: nuttanon211211  [at]  github.com-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
 <title>CVD Risk Color Chart</title>
 <style>
+body {
+  background-color: #78c6bb;
+}
+
 p.terminal {
   background-color: forestgreen;
   color: white;
@@ -221,13 +225,13 @@ div.visible {
   z-index: 1;
   border-radius: 6px;
   padding: 5px 0;
-  width: 240px;
+  width: 140px;
   top: 0%;
   left: 0%;
   margin-left: 0px;
   text-align: center;
   opacity: 0;
-  transition: opacity 0.3s;
+/*   transition: opacity 0.3s; */
 }
 
 .tooltip .tooltiptext:after {
@@ -241,6 +245,12 @@ div.visible {
   border-color: #555 transparent transparent transparent;
 }
 
+
+.tooltiptext:hover .tooltiptext:active .tooltiptext:onclick {
+  visibility: visible;
+  opacity: 1;
+}
+
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
@@ -250,6 +260,8 @@ div.visible {
   visibility: visible;
   opacity: 1;
 }
+
+
 
 </style>
 </head>
@@ -281,7 +293,7 @@ div.visible {
 <label for="smoke">สูบ</label>
 
 &ensp;<div class="tooltip">&#10067;
-<span class="tooltiptext">สูบบุหรี่ไม่เกิน 1 ปี</span>
+<span class="tooltiptext">รวมผู้ที่หยุดบุหรี่น้อยกว่า 1 ปี</span>
 </div>
 <br>
 <div id="dmb">
@@ -990,6 +1002,8 @@ function calRisk() {
     document.getElementById("out").innerHTML = "เกิดข้อผิดพลาดเนื่องจาก<br>"+errors.join('<br>');
     document.getElementById('out').className = "terminale";
   }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   
   
 
@@ -1061,6 +1075,8 @@ function calRisk2() {
     document.getElementById("out").innerHTML = "เกิดข้อผิดพลาดเนื่องจาก<br>"+errors.join('<br>');
     document.getElementById('out').className = "terminale";
   }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 
 
 
